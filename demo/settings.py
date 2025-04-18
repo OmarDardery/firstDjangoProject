@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-cy0g99y%q8(q^9jd2xzvibr58pw&@o4+0^vnf+b&h7_y8_$ef$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['djfirst.onrender.com']
+
 
 
 # Application definition
@@ -121,3 +122,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import os
+from decouple import config
+import dj_database_url
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Whitenoise settings
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# For production database
+DATABASES = {
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
+}
