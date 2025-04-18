@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cy0g99y%q8(q^9jd2xzvibr58pw&@o4+0^vnf+b&h7_y8_$ef$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djfirst.onrender.com']
+ALLOWED_HOSTS = ['firstdjangoproject-f25a.onrender.com/']
 
 
 
